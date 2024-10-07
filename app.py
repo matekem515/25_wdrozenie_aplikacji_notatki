@@ -1,12 +1,11 @@
 from io import BytesIO
 import streamlit as st
-from streamlit_audiorecorder import audiorecorder   # type: ignore
+from audiorecorder import audiorecorder   # type: ignore
 from dotenv import dotenv_values
 from hashlib import md5
 from openai import OpenAI
 from qdrant_client import QdrantClient
 from qdrant_client.models import PointStruct, Distance, VectorParams
-
 
 env = dotenv_values(".env")
 if 'QDRANT_URL' in st.secrets:
