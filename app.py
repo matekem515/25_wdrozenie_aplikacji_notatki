@@ -1,6 +1,6 @@
 from io import BytesIO
 import streamlit as st
-from audiorecorder import audiorecorder  
+from streamlit_audiorecorder import audiorecorder   # type: ignore
 from dotenv import dotenv_values
 from hashlib import md5
 from openai import OpenAI
