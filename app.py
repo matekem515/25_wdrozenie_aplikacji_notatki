@@ -1,6 +1,6 @@
 from io import BytesIO
 import streamlit as st
-from audiorecorder import audiorecorder  # type: ignore
+from audiorecorder import audiorecorder  
 from dotenv import dotenv_values
 from hashlib import md5
 from openai import OpenAI
@@ -9,7 +9,11 @@ from qdrant_client.models import PointStruct, Distance, VectorParams
 
 
 env = dotenv_values(".env")
-
+if 'QDRANT_URL' in st.secrets:
+    env['QDRANT_URL'] = st.secrets['QDRANT_URL']
+if 'QDRANT_API_KEY' in st.secrets:
+    env['QDRANT_API_KEY'] = st.secrets['QDRANT_API_KEY']
+    
 EMBEDDING_MODEL = "text-embedding-3-large"
 
 EMBEDDING_DIM = 3072
